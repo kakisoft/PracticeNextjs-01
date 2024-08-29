@@ -1,0 +1,15 @@
+services:
+    nextjs_app01:
+        container_name: nextjs_app01
+        build:
+            dockerfile: ./Dockerfile
+            context: .
+            args:
+                - TZ=Asia/Tokyo
+        volumes:
+            - ./nextjs_app01:/nextjs_app01
+        working_dir: /nextjs_app01
+        ports:
+            - '3001:3001'
+            - '5173:5173'
+        tty: true
