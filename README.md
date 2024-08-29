@@ -15,3 +15,12 @@ npx create-next-app@latest . --use-npm --example "https://github.com/vercel/next
 npm run dev
 ```
 
+## build / start
+```
+※コンテナの中から実行する場合
+
+npm run build
+
+npm run start
+```
+
