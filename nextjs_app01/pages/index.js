@@ -1,17 +1,30 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export async function getServerSideProps() {
+  // Node.js のバージョンを取得
+  const nodeVersion = process.version;
+
+  // ページコンポーネントにプロパティとして渡す
+  return {
+    props: {
+      nodeVersion
+    }
+  };
+}
+
+export default function Home({ nodeVersion }) {
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
+        <meta name="description" content="A Next.js application displaying Node.js version." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className={styles.main}>
         <p className={styles.description}>
-          [ Node.js v18 ]
+          Running on Node.js version <strong>{nodeVersion}</strong>
         </p>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
